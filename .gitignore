@@ -1,0 +1,9 @@
+# 个人配置（含密码和API key）
+config.json
+# 书和阅读数据
+books/
+progress.json
+ds_log.json
+# 个人分享文稿
+共读小屋-小红书分享.txt
+__pycache__/
