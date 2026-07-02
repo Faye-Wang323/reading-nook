@@ -34,7 +34,7 @@ A self-hosted web app for reading books together with your AI. You read and high
 ## Quick Start
 
 ```bash
-git clone <this repo>
+git clone https://github.com/zzyyksl/reading-nook.git
 cd reading-nook
 cp config.example.json config.json   # set your own passcode and names
 python3 app.py                        # requires Python 3.10+

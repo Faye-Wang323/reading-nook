@@ -34,7 +34,7 @@
 ## 快速开始
 
 ```bash
-git clone <https://github.com/zzyyksl/reading-nook>
+git clone https://github.com/zzyyksl/reading-nook.git
 cd reading-nook
 cp config.example.json config.json   # 改成你自己的密码和称呼
 python3 app.py                        # 需要 Python 3.10+
