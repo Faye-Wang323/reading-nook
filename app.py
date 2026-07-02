@@ -322,7 +322,9 @@ def gen_notes_async(slug):
 # 每个主题 = day全量变量 + night差量覆盖。结构类风格（黏土/新拟物/玻璃）靠
 # --radius/--shadow/--cbd/--sblur/--btnsh 等结构变量实现，页面CSS统一消费。
 THEMES = {
-    "puppy": {"label": "🍪 奶油小狗", "day": {
+    "puppy": {"label": "🍪 奶油小狗", "sticker": "🐶",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><text x='16' y='36' font-size='15' opacity='.5' fill='#c08a4f'>✦</text><text x='108' y='64' font-size='16' opacity='.35'>🐾</text><text x='56' y='120' font-size='12' opacity='.45' fill='#e8a0ac'>♡</text><text x='132' y='152' font-size='11' opacity='.5' fill='#93bce0'>✦</text></svg>",
+     "decoN": "<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><text x='16' y='36' font-size='15' opacity='.25' fill='#aab8d8'>✦</text><text x='108' y='64' font-size='16' opacity='.15'>🐾</text><text x='56' y='120' font-size='12' opacity='.2' fill='#c8909e'>♡</text><text x='132' y='152' font-size='11' opacity='.22' fill='#93bce0'>✦</text></svg>", "day": {
         "--bg": "#fbf2de", "--card": "#fffdf6", "--ink": "#4a4038", "--sub": "#a5977f",
         "--accent": "#c94f4f", "--pink": "#ffe9ed", "--pink-line": "#f0a8b8",
         "--blue": "#e3f0fb", "--blue-line": "#93bce0", "--mark": "#fdeac2",
@@ -335,7 +337,9 @@ THEMES = {
         "--blue": "#2a3a4d", "--blue-line": "#7fa8d0", "--mark": "#4a3e26",
         "--pink-ink": "#e3a3b0", "--blue-ink": "#9cc0e8", "--line": "#3a4150",
         "--cbd": "1.5px solid #39445a", "--shadow": "0 2px 10px rgba(0,0,0,.4)"}},
-    "matcha": {"label": "🍵 抹茶老铺", "day": {
+    "matcha": {"label": "🍵 抹茶老铺", "sticker": "🍵",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><text x='20' y='44' font-size='16' opacity='.3'>🍃</text><text x='120' y='90' font-size='14' opacity='.4' fill='#5a7a4c'>❋</text><text x='60' y='150' font-size='11' opacity='.35' fill='#c9a578'>◦</text><text x='150' y='160' font-size='12' opacity='.35' fill='#5a7a4c'>❋</text></svg>",
+     "decoN": "<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><text x='20' y='44' font-size='16' opacity='.14'>🍃</text><text x='120' y='90' font-size='14' opacity='.2' fill='#a3c088'>❋</text><text x='150' y='160' font-size='12' opacity='.18' fill='#a3c088'>❋</text></svg>", "day": {
         "--bg": "#e9ecd9", "--card": "#f8f9ec", "--ink": "#333f2b", "--sub": "#87927a",
         "--accent": "#5a7a4c", "--pink": "#f2e8d8", "--pink-line": "#c9a578",
         "--blue": "#e0ead9", "--blue-line": "#87a578", "--mark": "#e3e8c4",
@@ -348,7 +352,9 @@ THEMES = {
         "--blue": "#25301f", "--blue-line": "#7d9a68", "--mark": "#39402a",
         "--pink-ink": "#cdb083", "--blue-ink": "#a8c890", "--line": "#333d2b",
         "--cbd": "1px solid #37432c", "--shadow": "0 1px 6px rgba(0,0,0,.5)"}},
-    "mucha": {"label": "🌿 慕夏花神", "day": {
+    "mucha": {"label": "🌿 慕夏花神", "sticker": "🌷",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190'><text x='18' y='42' font-size='17' opacity='.35' fill='#a8823f'>✿</text><text x='120' y='84' font-size='15' opacity='.4' fill='#7c8449'>❦</text><text x='58' y='146' font-size='13' opacity='.35' fill='#a8823f'>❧</text><text x='150' y='172' font-size='14' opacity='.3' fill='#7c8449'>✿</text></svg>",
+     "decoN": "<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190'><text x='18' y='42' font-size='17' opacity='.18' fill='#c8a45c'>✿</text><text x='120' y='84' font-size='15' opacity='.2' fill='#8f9a5c'>❦</text><text x='150' y='172' font-size='14' opacity='.15' fill='#c8a45c'>✿</text></svg>", "day": {
         "--bg": "#f0e9d6", "--card": "#faf5e6", "--ink": "#4b4331", "--sub": "#998c6d",
         "--accent": "#7c8449", "--pink": "#f4e4d0", "--pink-line": "#cf9d6e",
         "--blue": "#e6e8d2", "--blue-line": "#9aa46c", "--mark": "#eadfb4",
@@ -361,7 +367,9 @@ THEMES = {
         "--blue": "#2c2e1c", "--blue-line": "#8f9a5c", "--mark": "#403820",
         "--pink-ink": "#d0aa72", "--blue-ink": "#b2bc7a", "--line": "#3d3620",
         "--cbd": "1px solid #4c4226", "--shadow": "0 1px 6px rgba(0,0,0,.5)"}},
-    "bwcute": {"label": "🎀 黑白甜", "day": {
+    "bwcute": {"label": "🎀 黑白甜", "sticker": "🎀",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><text x='14' y='38' font-size='14' opacity='.16' fill='#2a2a2a'>★</text><text x='104' y='66' font-size='15' opacity='.3'>🎀</text><text x='52' y='122' font-size='11' opacity='.18' fill='#2a2a2a'>✧</text><text x='134' y='152' font-size='12' opacity='.15' fill='#2a2a2a'>♪</text></svg>",
+     "decoN": "<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><text x='14' y='38' font-size='14' opacity='.2' fill='#e8e8e8'>★</text><text x='104' y='66' font-size='15' opacity='.18'>🎀</text><text x='52' y='122' font-size='11' opacity='.22' fill='#e8e8e8'>✧</text></svg>", "day": {
         "--bg": "#f5f5f5", "--card": "#ffffff", "--ink": "#262626", "--sub": "#9a9a9a",
         "--accent": "#1a1a1a", "--pink": "#efefef", "--pink-line": "#c8c8c8",
         "--blue": "#e6e6e6", "--blue-line": "#8f8f8f", "--mark": "#e2e2e2",
@@ -375,7 +383,9 @@ THEMES = {
         "--blue": "#262626", "--blue-line": "#909090", "--mark": "#3a3a3a",
         "--pink-ink": "#c8c8c8", "--blue-ink": "#dcdcdc", "--line": "#333333",
         "--cbd": "1.5px solid #e8e8e8", "--shadow": "3px 3px 0 rgba(232,232,232,.85)"}},
-    "bluecard": {"label": "🕊 法式蓝笺", "day": {
+    "bluecard": {"label": "🕊 法式蓝笺", "sticker": "🕊",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190'><text x='18' y='44' font-size='15' opacity='.3'>🕊</text><text x='118' y='88' font-size='14' opacity='.35' fill='#5a72b0'>❧</text><text x='58' y='148' font-size='12' opacity='.3' fill='#7e97c8'>✻</text><text x='150' y='170' font-size='11' opacity='.3' fill='#5a72b0'>❦</text></svg>",
+     "decoN": "<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190'><text x='18' y='44' font-size='15' opacity='.14'>🕊</text><text x='118' y='88' font-size='14' opacity='.2' fill='#93aade'>❧</text><text x='58' y='148' font-size='12' opacity='.16' fill='#93aade'>✻</text></svg>", "day": {
         "--bg": "#f6f3ea", "--card": "#fdfcf6", "--ink": "#39466b", "--sub": "#8b96b0",
         "--accent": "#5a72b0", "--pink": "#edf1fa", "--pink-line": "#aab9de",
         "--blue": "#e2eaf6", "--blue-line": "#7e97c8", "--mark": "#dce6f5",
@@ -388,7 +398,9 @@ THEMES = {
         "--blue": "#20293e", "--blue-line": "#6f88c0", "--mark": "#2d3a58",
         "--pink-ink": "#a8b8e8", "--blue-ink": "#93aade", "--line": "#2a3350",
         "--cbd": "1px solid #333f60", "--shadow": "0 1px 5px rgba(0,0,0,.5)"}},
-    "clay": {"label": "🍡 黏土", "day": {
+    "clay": {"label": "🍡 黏土", "sticker": "🍡",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><circle cx='34' cy='40' r='14' fill='#e8a0c8' opacity='.22'/><circle cx='140' cy='86' r='10' fill='#b3a2e8' opacity='.25'/><circle cx='70' cy='156' r='8' fill='#f5c990' opacity='.3'/><circle cx='176' cy='170' r='12' fill='#a0d8c8' opacity='.22'/></svg>",
+     "decoN": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><circle cx='34' cy='40' r='14' fill='#e8a0c8' opacity='.1'/><circle cx='140' cy='86' r='10' fill='#b3a2e8' opacity='.12'/><circle cx='176' cy='170' r='12' fill='#a0d8c8' opacity='.1'/></svg>", "day": {
         "--bg": "#efeafa", "--card": "#faf7ff", "--ink": "#4c4460", "--sub": "#a094ba",
         "--accent": "#d4739a", "--pink": "#fce2ee", "--pink-line": "#eba4c8",
         "--blue": "#e5dcfa", "--blue-line": "#b3a2e8", "--mark": "#fdedd4",
@@ -424,7 +436,8 @@ THEMES = {
         "--shadow": "8px 8px 16px #23272d,-8px -8px 16px #333a43",
         "--btnsh": "5px 5px 10px #23272d,-5px -5px 10px #333a43",
         "--btnsh-a": "inset 4px 4px 8px #23272d,inset -4px -4px 8px #333a43"}},
-    "glass": {"label": "🫧 拟态玻璃", "day": {
+    "glass": {"label": "🫧 拟态玻璃", "sticker": "🫧",
+     "deco": "<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><circle cx='40' cy='50' r='16' fill='none' stroke='#ffffff' stroke-width='1.5' opacity='.5'/><circle cx='150' cy='100' r='9' fill='#ffffff' opacity='.25'/><circle cx='80' cy='170' r='12' fill='none' stroke='#ffffff' stroke-width='1' opacity='.4'/><circle cx='195' cy='190' r='6' fill='#ffffff' opacity='.3'/></svg>", "day": {
         "--bg": "linear-gradient(135deg,#c9d6f5 0%,#e6d3ee 45%,#cde9f2 100%) fixed",
         "--card": "rgba(255,255,255,.5)", "--ink": "#3b4058", "--sub": "#7d84a0",
         "--accent": "#7568cc", "--pink": "rgba(255,214,228,.65)",
@@ -454,16 +467,27 @@ PALETTES = {
 
 # 页面公共结构样式：消费主题的结构变量，追加在页面自身CSS之后以获得覆盖权
 EXTRA_CSS = """<style>
+body{background:var(--bgfull,var(--bg))}
 .card,.item,.stat>div,.info,.sheet{border-radius:var(--radius,16px);
 box-shadow:var(--shadow,0 1px 6px rgba(120,90,60,.08));border:var(--cbd,none);
 backdrop-filter:var(--sblur,none);-webkit-backdrop-filter:var(--sblur,none)}
 .sheet{border-radius:var(--radius,16px) var(--radius,16px) 0 0}
 button{transition:transform .15s,box-shadow .15s,filter .2s}
 button:active{transform:scale(.96)}
-.card{transition:transform .2s,box-shadow .2s}
+.card{transition:transform .2s,box-shadow .2s;position:relative}
 @media(hover:hover){.card:hover{transform:translateY(-2px)}}
+.card::after{content:var(--sticker,"");position:absolute;top:-11px;right:14px;
+font-size:22px;transform:rotate(10deg);pointer-events:none;
+filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))}
 .modes button,.srow button{box-shadow:var(--btnsh,none);border-radius:var(--bradius,10px)}
 .modes button:active,.srow button:active{box-shadow:var(--btnsh-a,var(--btnsh,none))}
+/* 各主题的专属装饰（照搬参考图的视觉语言） */
+.th-puppy .card{background-image:repeating-linear-gradient(90deg,rgba(147,188,224,.3) 0 12px,transparent 12px 24px);background-size:100% 7px;background-repeat:no-repeat;background-position:top}
+.th-matcha .card{border-left:4px solid var(--accent)}
+.th-mucha .card{outline:1px solid rgba(160,135,80,.5);outline-offset:-6px}
+.th-bwcute .card{outline:1.5px dashed rgba(130,130,130,.5);outline-offset:-6px}
+.th-bluecard .card{outline:1px solid rgba(110,130,180,.4);outline-offset:-5px}
+.th-glass #rnfab,.th-glass .up{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 #rnfab{position:fixed;right:16px;bottom:20px;z-index:40;width:44px;height:44px;
 border-radius:50%;background:var(--card);color:var(--ink);font-size:20px;
 box-shadow:var(--shadow,0 1px 6px rgba(120,90,60,.2));border:var(--cbd,none);
@@ -495,17 +519,28 @@ color:var(--ink);border:1px solid var(--line,#e5dccb)}
 padding:0;background:none;cursor:pointer}
 </style>"""
 
-# 注入到每个页面：应用主题/夜间/划线色/字色/阅读背景 + 设置按钮与面板
+# 注入到每个页面：应用主题/夜间/四项颜色/字色/阅读背景/翻页方式 + 设置按钮与面板
+# （阅读页不显示设置按钮，所有设置在书架页调好后进阅读页生效）
 SETTINGS_SNIPPET = """<script>
 const RNT=__TJSON__,RNPAL=__PJSON__;
 const RNLS=k=>localStorage.getItem(k)||'';
 function rnApply(){
  let k=RNLS('rn_theme');if(!RNT[k])k='puppy';
  const night=RNLS('rn_mode')==='night';
+ const t=RNT[k];
  const r=document.documentElement.style;r.cssText='';
- const vars=Object.assign({},RNT[k].day,night?RNT[k].night:{});
+ const vars=Object.assign({},t.day,night?t.night:{});
  for(const[v,c]of Object.entries(vars))r.setProperty(v,c);
- if(RNLS('rn_mark'))r.setProperty('--mark',RNLS('rn_mark'));
+ if(document.body)document.body.className=document.body.className.replace(/\\bth-\\w+\\b/g,'').trim()+' th-'+k;
+ const deco=night?(t.decoN||''):(t.deco||'');
+ if(deco)r.setProperty('--bgfull','url("data:image/svg+xml,'+encodeURIComponent(deco)+'") repeat,'+vars['--bg']);
+ if(t.sticker)r.setProperty('--sticker','"'+t.sticker+'"');
+ if(RNLS('rn_mark_u'))r.setProperty('--mark-u',RNLS('rn_mark_u')+'66');
+ if(RNLS('rn_mark_ai'))r.setProperty('--mark-ai',RNLS('rn_mark_ai')+'66');
+ if(RNLS('rn_bub_u')){r.setProperty('--pink',RNLS('rn_bub_u')+'2e');
+  r.setProperty('--pink-line',RNLS('rn_bub_u'));r.setProperty('--pink-ink',RNLS('rn_bub_u'));}
+ if(RNLS('rn_bub_ai')){r.setProperty('--blue',RNLS('rn_bub_ai')+'2e');
+  r.setProperty('--blue-line',RNLS('rn_bub_ai'));r.setProperty('--blue-ink',RNLS('rn_bub_ai'));}
  if(RNLS('rn_ink'))r.setProperty('--rink',RNLS('rn_ink'));
  const rb=RNLS('rn_rbg');
  if(rb==='white'){r.setProperty('--rbg','#ffffff');if(!RNLS('rn_ink'))r.setProperty('--rink','#333333');}
@@ -515,7 +550,18 @@ function rnApply(){
  else if(rb==='custom')r.setProperty('--rbg','url("/bg?v='+RNLS('rn_bgv')+'") center/cover no-repeat fixed');
 }
 rnApply();
+document.addEventListener('DOMContentLoaded',rnApply);
 function rnSet(k,v){v?localStorage.setItem(k,v):localStorage.removeItem(k);rnApply();rnPanel();}
+function rnPick(label,key,dflt){
+ const cur=RNLS(key);
+ let h='<div class="rns">'+label+'</div><div class="rnrow">'+
+  '<button class="rnbt'+(cur?'':' cur')+'" onclick="rnSet(\\''+key+'\\',\\'\\')">跟随主题</button>'+
+  '<input type="color" class="rnclr" value="'+(cur||dflt)+'" onchange="rnSet(\\''+key+'\\',this.value)"></div>';
+ for(const[pn,cs]of Object.entries(RNPAL)){
+  h+='<div class="rnrow"><span class="rnpl">'+pn+'</span>'+cs.map(c=>
+   '<span class="rnsw'+(cur===c?' cur':'')+'" style="background:'+c+'" onclick="rnSet(\\''+key+'\\',\\''+c+'\\')"></span>').join('')+'</div>';}
+ return h;
+}
 function rnPanel(){
  const p=document.getElementById('rnset');if(!p)return;
  const curT=RNT[RNLS('rn_theme')]?RNLS('rn_theme'):'puppy';
@@ -529,21 +575,18 @@ function rnPanel(){
  h+='</div><div class="rns">白天 / 夜间</div><div class="rnrow">'+
   '<button class="rnbt'+(night?'':' cur')+'" onclick="rnSet(\\'rn_mode\\',\\'\\')">☀ 白天</button>'+
   '<button class="rnbt'+(night?' cur':'')+'" onclick="rnSet(\\'rn_mode\\',\\'night\\')">🌙 夜间</button></div>';
- h+='<div class="rns">划线/批注高亮色</div><div class="rnrow">'+
-  '<button class="rnbt'+(RNLS('rn_mark')?'':' cur')+'" onclick="rnSet(\\'rn_mark\\',\\'\\')">跟随主题</button></div>';
- for(const[pn,cs]of Object.entries(RNPAL)){
-  h+='<div class="rnrow"><span class="rnpl">'+pn+'</span>'+cs.map(c=>{
-   const val=c+'66';
-   return '<span class="rnsw'+(RNLS('rn_mark')===val?' cur':'')+'" style="background:'+c+'" onclick="rnSet(\\'rn_mark\\',\\''+val+'\\')"></span>';}).join('')+'</div>';}
- h+='<div class="rnrow"><span class="rnpl">调色盘（自由选色）</span>'+
-  '<input type="color" class="rnclr" value="#f9e3c8" onchange="rnSet(\\'rn_mark\\',this.value+\\'66\\')"></div>';
- h+='<div class="rns">阅读正文字色</div><div class="rnrow">'+
-  '<button class="rnbt'+(RNLS('rn_ink')?'':' cur')+'" onclick="rnSet(\\'rn_ink\\',\\'\\')">跟随主题</button></div>';
- for(const[pn,cs]of Object.entries(RNPAL)){
-  h+='<div class="rnrow"><span class="rnpl">'+pn+'</span>'+cs.map(c=>
-   '<span class="rnsw'+(RNLS('rn_ink')===c?' cur':'')+'" style="background:'+c+'" onclick="rnSet(\\'rn_ink\\',\\''+c+'\\')"></span>').join('')+'</div>';}
- h+='<div class="rnrow"><span class="rnpl">调色盘（自由选色）</span>'+
-  '<input type="color" class="rnclr" value="#3d3630" onchange="rnSet(\\'rn_ink\\',this.value)"></div>';
+ const flow=RNLS('rn_flow')==='scroll',tap=RNLS('rn_tapturn')!=='off';
+ h+='<div class="rns">阅读翻页方式</div><div class="rnrow">'+
+  '<button class="rnbt'+(flow?'':' cur')+'" onclick="rnSet(\\'rn_flow\\',\\'\\')">左右翻页</button>'+
+  '<button class="rnbt'+(flow?' cur':'')+'" onclick="rnSet(\\'rn_flow\\',\\'scroll\\')">上下滑动·无缝</button></div>';
+ h+='<div class="rns">点击屏幕两侧翻页（左右翻页时）</div><div class="rnrow">'+
+  '<button class="rnbt'+(tap?' cur':'')+'" onclick="rnSet(\\'rn_tapturn\\',\\'\\')">开</button>'+
+  '<button class="rnbt'+(tap?'':' cur')+'" onclick="rnSet(\\'rn_tapturn\\',\\'off\\')">关</button></div>';
+ h+=rnPick('我的划线色','rn_mark_u','#e8a0ac');
+ h+=rnPick('__ANAME__回应后的划线色','rn_mark_ai','#7fa8d0');
+ h+=rnPick('我的批注气泡色','rn_bub_u','#e8a0ac');
+ h+=rnPick('__ANAME__的批注气泡色','rn_bub_ai','#7fa8d0');
+ h+=rnPick('阅读正文字色','rn_ink','#3d3630');
  const rb=RNLS('rn_rbg');
  h+='<div class="rns">阅读页背景</div><div class="rnrow">'+
   [['','跟随主题'],['white','纯白'],['paper','书页'],['black','纯黑']].map(([v,n])=>
@@ -562,13 +605,13 @@ function rnPanel(){
   else document.getElementById('rnst').textContent='✗ '+(r.error||'失败');
  };
 }
-function rnReset(){['rn_theme','rn_mode','rn_mark','rn_ink','rn_rbg'].forEach(k=>localStorage.removeItem(k));rnApply();rnPanel();}
+function rnReset(){['rn_theme','rn_mode','rn_mark','rn_mark_u','rn_mark_ai','rn_bub_u','rn_bub_ai','rn_ink','rn_rbg','rn_flow','rn_tapturn'].forEach(k=>localStorage.removeItem(k));rnApply();rnPanel();}
 document.addEventListener('DOMContentLoaded',()=>{
  if(document.querySelector('.gate'))return;
+ if(document.getElementById('bot'))return; /* 阅读页不放设置按钮 */
  const fab=document.createElement('button');fab.id='rnfab';fab.textContent='⚙';
  const mask=document.createElement('div');mask.id='rnmask';
  const panel=document.createElement('div');panel.id='rnset';
- if(document.getElementById('bot'))fab.style.bottom='64px';
  fab.onclick=()=>{rnPanel();panel.classList.add('on');mask.classList.add('on');};
  mask.onclick=()=>{panel.classList.remove('on');mask.classList.remove('on');};
  document.body.append(fab,mask,panel);
@@ -668,15 +711,18 @@ load();
 READER_HTML = """<!doctype html><html lang="zh"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <title>阅读</title><style>__CSS__
-body{overflow:hidden;background:var(--rbg,var(--bg))}
-#top{position:fixed;top:0;left:0;right:0;background:var(--rbg,var(--bg));z-index:5;
+body{overflow:hidden;background:var(--rbg,var(--bgfull,var(--bg)))}
+#top{position:fixed;top:0;left:0;right:0;background:var(--rbg,var(--bgfull,var(--bg)));z-index:5;
 display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:13px;color:var(--sub)}
 #top a{font-size:15px}
 #ct{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #page{position:fixed;top:44px;bottom:52px;left:0;right:0;overflow-y:auto;
 padding:8px 22px 20px;max-width:680px;margin:0 auto;color:var(--rink,var(--ink))}
 #page p{text-indent:2em;margin-bottom:.9em}
+.chdiv{text-align:center;color:var(--sub);font-size:14px;margin:30px 0 20px;letter-spacing:3px}
 mark{background:var(--mark);border-bottom:2px solid var(--accent);padding:1px 0;cursor:pointer}
+mark.mu{background:var(--mark-u,var(--mark))}
+mark.mr{background:var(--mark-ai,var(--mark))}
 mark .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:2px;vertical-align:super}
 mark .du{background:var(--pink-line)}mark .dr{background:var(--blue-line)}
 #bot{position:fixed;bottom:0;left:0;right:0;background:var(--rbg,var(--bg));z-index:5;
@@ -726,55 +772,130 @@ overflow-y:auto;display:none}
 <div class="sheet" id="sh"></div>
 <script>
 const SLUG=__SLUG__,CH=__CH__,MODE=__MODE__;
-let pages=[],cur=0,annos=[],data=null,pendAnchor=null;
+const FLOW=localStorage.getItem('rn_flow')==='scroll';
+const TAP=localStorage.getItem('rn_tapturn')!=='off';
+let pages=[],cur=0,data=null,pendAnchor=null,pendCh=CH;
+let loaded=[],loading=false,saveT=0;
 const $=id=>document.getElementById(id);
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
-async function init(){
- data=await fetch('/api/chapter/'+SLUG+'/'+CH).then(r=>r.json());
- if(MODE===2){annos=await fetch('/api/annotations/'+SLUG+'/'+CH).then(r=>r.json());
-  $('abtn').style.display='inline';}
- const paras=data.text.split('\\n').map(s=>s.trim()).filter(Boolean);
- let buf=[],n=0;pages=[];
+function paginate(paras){
+ const ps=[];let buf=[],n=0;
  for(const p of paras){buf.push(p);n+=p.length;
-  if(n>=1100){pages.push(buf);buf=[];n=0;}}
- if(buf.length)pages.push(buf);
- if(!pages.length)pages=[['（本章为空）']];
- $('ct').textContent=data.title;
+  if(n>=1100){ps.push(buf);buf=[];n=0;}}
+ if(buf.length)ps.push(buf);
+ return ps.length?ps:[['（本章为空）']];
+}
+async function fetchCh(i){
+ const d=await fetch('/api/chapter/'+encodeURIComponent(SLUG)+'/'+i).then(r=>r.json());
+ const annos=MODE===2?await fetch('/api/annotations/'+encodeURIComponent(SLUG)+'/'+i).then(r=>r.json()):[];
+ const paras=d.text.split('\\n').map(s=>s.trim()).filter(Boolean);
+ return {ch:i,title:d.title,paras:paras.length?paras:['（本章为空）'],annos:annos,pages:paginate(paras),data:d};
+}
+async function init(){
+ const first=await fetchCh(CH);
+ data=first.data;loaded=[first];pages=first.pages;
+ if(MODE===2)$('abtn').style.display='inline';
+ $('ct').textContent=first.title;
  const prog=await fetch('/api/progress').then(r=>r.json());
  const p=prog[SLUG];
- if(p&&p.ch===CH&&p.page<pages.length)cur=p.page;
- render();
+ if(FLOW){
+  renderScroll();
+  if(p&&p.ch===CH&&pages.length>1){
+   const el=$('page');
+   requestAnimationFrame(()=>{el.scrollTop=(p.page/pages.length)*Math.max(0,el.scrollHeight-el.clientHeight);});
+  }
+  $('page').addEventListener('scroll',onScroll,{passive:true});
+ }else{
+  if(p&&p.ch===CH&&p.page<pages.length)cur=p.page;
+  render();
+ }
+}
+function chHtml(L){
+ return '<div class="chb" data-ch="'+L.ch+'">'+
+  (L.ch!==CH?'<div class="chdiv">'+esc(L.title)+'</div>':'')+
+  L.paras.map(p=>'<p>'+deco(p,L.annos)+'</p>').join('')+'</div>';
+}
+function renderScroll(){
+ const el=$('page'),st=el.scrollTop;
+ el.innerHTML=loaded.map(chHtml).join('');
+ el.scrollTop=st;updPg();
+}
+function topChb(){
+ const el=$('page');let cb=null;
+ el.querySelectorAll('.chb').forEach(b=>{if(b.offsetTop<=el.scrollTop+60)cb=b;});
+ return cb||el.querySelector('.chb');
+}
+function onScroll(){
+ const el=$('page');
+ if(!loading&&el.scrollTop+el.clientHeight>el.scrollHeight-600){
+  const last=loaded[loaded.length-1];
+  if(last.ch+1<data.total){loading=true;
+   fetchCh(last.ch+1).then(L=>{loaded.push(L);
+    el.insertAdjacentHTML('beforeend',chHtml(L));loading=false;updPg();});}
+ }
+ clearTimeout(saveT);saveT=setTimeout(saveScrollProg,400);
+ updPg();
+}
+function saveScrollProg(){
+ const el=$('page'),b=topChb();if(!b)return;
+ const L=loaded.find(x=>x.ch==b.dataset.ch);if(!L)return;
+ const rc=Math.min(1,Math.max(0,(el.scrollTop-b.offsetTop)/Math.max(1,b.offsetHeight-el.clientHeight)));
+ fetch('/api/progress',{method:'POST',headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({slug:SLUG,ch:L.ch,page:Math.min(L.pages.length-1,Math.floor(rc*L.pages.length)),mode:MODE})});
+}
+function updPg(){
+ if(FLOW){
+  const b=topChb();
+  if(b){const L=loaded.find(x=>x.ch==b.dataset.ch);
+   if(L)$('ct').textContent=L.title;
+   $('pg').textContent=(+b.dataset.ch+1)+' / '+data.total+' 章';}
+ }else $('pg').textContent=(cur+1)+' / '+pages.length;
+ $('acnt').textContent=MODE===2?(loaded.reduce((s,L)=>s+L.annos.length,0)||''):'';
 }
 function render(){
  const el=$('page');
- el.innerHTML=pages[cur].map(p=>'<p>'+deco(p)+'</p>').join('');
- el.scrollTop=0;
- $('pg').textContent=(cur+1)+' / '+pages.length;
- $('acnt').textContent=annos.length?annos.length:'';
+ el.innerHTML='<div class="chb" data-ch="'+CH+'">'+
+  pages[cur].map(p=>'<p>'+deco(p,loaded[0].annos)+'</p>').join('')+'</div>';
+ el.scrollTop=0;updPg();
  fetch('/api/progress',{method:'POST',headers:{'Content-Type':'application/json'},
   body:JSON.stringify({slug:SLUG,ch:CH,page:cur,mode:MODE})});
 }
-function deco(para){
+function deco(para,annos){
  if(MODE!==2)return esc(para);
  let hits=annos.filter(a=>para.includes(a.anchor));
  if(!hits.length)return esc(para);
  const a=hits[0];
  const i=para.indexOf(a.anchor);
- const dot=a.replies&&a.replies.length?'dr':'du';
- return esc(para.slice(0,i))+'<mark data-id="'+a.id+'">'+esc(a.anchor)+
-  '<span class="dot '+dot+'"></span></mark>'+deco(para.slice(i+a.anchor.length));
+ const rep=a.replies&&a.replies.length;
+ return esc(para.slice(0,i))+'<mark class="'+(rep?'mr':'mu')+'" data-id="'+a.id+'">'+esc(a.anchor)+
+  '<span class="dot '+(rep?'dr':'du')+'"></span></mark>'+deco(para.slice(i+a.anchor.length),annos);
 }
 function nav(d){
+ if(FLOW){
+  const b=topChb();const c=(b?+b.dataset.ch:CH)+d;
+  if(c>=0&&c<data.total)location.href='/read/'+encodeURIComponent(SLUG)+'/'+c+'?mode='+MODE;
+  return;
+ }
  const c=cur+d;
- if(c<0){if(CH>0)location.href='/read/'+SLUG+'/'+(CH-1)+'?mode='+MODE;return;}
+ if(c<0){if(CH>0)location.href='/read/'+encodeURIComponent(SLUG)+'/'+(CH-1)+'?mode='+MODE;return;}
  if(c>=pages.length){
-  if(CH+1<data.total)location.href='/read/'+SLUG+'/'+(CH+1)+'?mode='+MODE;
+  if(CH+1<data.total)location.href='/read/'+encodeURIComponent(SLUG)+'/'+(CH+1)+'?mode='+MODE;
   return;}
  cur=c;render();
 }
 document.addEventListener('keydown',e=>{
  if(e.key==='ArrowLeft')nav(-1);if(e.key==='ArrowRight')nav(1);});
+/* 点击屏幕两侧翻页（左右翻页模式；点到划线/链接不触发） */
+if(!FLOW&&TAP){
+ $('page').addEventListener('click',e=>{
+  if(e.target.closest('mark')||e.target.closest('a'))return;
+  const s=window.getSelection();
+  if(s&&!s.isCollapsed)return;
+  const x=e.clientX,w=window.innerWidth;
+  if(x<w*0.28)nav(-1);
+  else if(x>w*0.72)nav(1);
+ });
+}
 
 /* -------- 批注 -------- */
 function selInfo(){
@@ -783,7 +904,7 @@ function selInfo(){
  const t=s.toString().trim();
  if(!t||t.length<2||t.length>300)return null;
  if(!$('page').contains(s.anchorNode))return null;
- return {text:t,rect:s.getRangeAt(0).getBoundingClientRect()};
+ return {text:t,rect:s.getRangeAt(0).getBoundingClientRect(),node:s.anchorNode};
 }
 if(MODE===2){
  document.addEventListener('selectionchange',()=>{setTimeout(showTool,180);});
@@ -795,6 +916,9 @@ function showTool(){
  const info=selInfo(),t=$('tool');
  if(!info){t.style.display='none';return;}
  pendAnchor=info.text;
+ const nd=info.node.nodeType===1?info.node:info.node.parentElement;
+ const cb=nd&&nd.closest?nd.closest('.chb'):null;
+ pendCh=cb?+cb.dataset.ch:CH;
  t.style.display='flex';
  t.style.left=Math.max(8,Math.min(info.rect.left,window.innerWidth-150))+'px';
  let top=info.rect.bottom+14;
@@ -818,18 +942,27 @@ function openEditor(anchor){
  sh.classList.add('on');$('mask').classList.add('on');
  setTimeout(()=>$('nt').focus(),100);
 }
+async function reloadAnnos(ch){
+ const L=loaded.find(x=>x.ch===ch);
+ if(L)L.annos=await fetch('/api/annotations/'+encodeURIComponent(SLUG)+'/'+ch).then(r=>r.json());
+}
 async function saveAnno(anchor,note){
- await fetch('/api/annotations/'+SLUG+'/'+CH,{method:'POST',
+ const ch=pendCh;
+ await fetch('/api/annotations/'+encodeURIComponent(SLUG)+'/'+ch,{method:'POST',
   headers:{'Content-Type':'application/json'},
   body:JSON.stringify({anchor:anchor,note:note,who:'user'})});
- annos=await fetch('/api/annotations/'+SLUG+'/'+CH).then(r=>r.json());
- closeAll();render();
+ await reloadAnnos(ch);
+ closeAll();FLOW?renderScroll():render();
+}
+function findAnno(id){
+ for(const L of loaded){const a=L.annos.find(x=>x.id===id);if(a)return{a:a,L:L};}
+ return null;
 }
 function openAnno(id){
- const a0=annos.find(x=>x.id===id);if(!a0)return;
- const group=annos.filter(x=>x.anchor===a0.anchor);
+ const f=findAnno(id);if(!f)return;
+ const group=f.L.annos.filter(x=>x.anchor===f.a.anchor);
  const sh=$('sh');
- let h='<div class="quote">'+esc(a0.anchor)+'</div>';
+ let h='<div class="quote">'+esc(f.a.anchor)+'</div>';
  let anyReply=false;
  for(const a of group){
   if(a.note)h+='<div class="bub bu"><div class="who">__UNAME__</div>'+esc(a.note)+'</div>';
@@ -843,9 +976,10 @@ function openAnno(id){
  sh.innerHTML=h;sh.classList.add('on');$('mask').classList.add('on');
 }
 async function delAnno(id){
- await fetch('/api/annotations/'+SLUG+'/'+CH+'?id='+id,{method:'DELETE'});
- annos=await fetch('/api/annotations/'+SLUG+'/'+CH).then(r=>r.json());
- closeAll();render();
+ const f=findAnno(id);if(!f)return;
+ await fetch('/api/annotations/'+encodeURIComponent(SLUG)+'/'+f.L.ch+'?id='+id,{method:'DELETE'});
+ await reloadAnnos(f.L.ch);
+ closeAll();FLOW?renderScroll():render();
 }
 $('tbtn').onclick=()=>{
  const el=$('alist');
@@ -858,7 +992,9 @@ $('tbtn').onclick=()=>{
 };
 $('abtn').onclick=()=>{
  const el=$('alist');
- el.innerHTML=annos.length?annos.map(a=>
+ const all=[];
+ for(const L of loaded)for(const a of L.annos)all.push(a);
+ el.innerHTML=all.length?all.map(a=>
   '<div class="ai" onclick="closeAll();openAnno(\\''+a.id+'\\')">'+
   '<div class="q">'+esc(a.anchor.slice(0,40))+'</div>'+
   esc(a.note||'🖊 划线')+(a.replies&&a.replies.length?' <span style="color:var(--blue-line)">· __ANAME__回了</span>':'')+
