@@ -192,9 +192,11 @@ TOOLS = {
 def mcp_dispatch(req):
     rid = req.get("id")
     method = req.get("method", "")
+    print(f"[MCP] <- {method} id={rid}", flush=True)
     if method == "initialize":
+        client_ver = (req.get("params") or {}).get("protocolVersion") or PROTOCOL_VERSION
         return {"jsonrpc": "2.0", "id": rid, "result": {
-            "protocolVersion": PROTOCOL_VERSION,
+            "protocolVersion": client_ver,
             "capabilities": {"tools": {}},
             "serverInfo": SERVER_INFO}}
     if method in ("notifications/initialized", "notifications/cancelled"):
@@ -234,17 +236,36 @@ class Handler(app.Handler):
             return super().do_POST()
         try:
             length = int(self.headers.get("Content-Length", 0))
-            req = json.loads(self.rfile.read(length) or b"{}")
-        except (ValueError, json.JSONDecodeError):
+            body = self.rfile.read(length) or b"{}"
+            print(f"[MCP] POST {len(body)}B UA={self.headers.get('User-Agent','?')[:40]}", flush=True)
+            req = json.loads(body)
+        except (ValueError, json.JSONDecodeError) as e:
+            print(f"[MCP] parse error: {e}", flush=True)
             return self.send_json({"jsonrpc": "2.0", "id": None,
                 "error": {"code": -32700, "message": "parse error"}}, 400)
-        resp = mcp_dispatch(req)
+        try:
+            if isinstance(req, list):  # JSON-RPC 批量
+                resp = [r for r in (mcp_dispatch(x) for x in req) if r is not None]
+                resp = resp or None
+            else:
+                resp = mcp_dispatch(req)
+        except Exception as e:
+            print(f"[MCP] dispatch crash: {e!r}", flush=True)
+            return self.send_json({"jsonrpc": "2.0", "id": None,
+                "error": {"code": -32603, "message": f"internal: {e}"}}, 500)
         if resp is None:
             self.send_response(202)
+            self.send_header("Mcp-Session-Id", "reading-nook-1")
             self.send_header("Content-Length", "0")
             self.end_headers()
             return
-        self.send_json(resp)
+        data = json.dumps(resp, ensure_ascii=False).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Mcp-Session-Id", "reading-nook-1")
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
 
     def do_GET(self):
         if self._is_mcp():
