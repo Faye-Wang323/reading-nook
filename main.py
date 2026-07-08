@@ -269,10 +269,23 @@ class Handler(app.Handler):
 
     def do_GET(self):
         if self._is_mcp():
-            # 不支持 SSE 流，按规范返回 405
-            self.send_response(405)
-            self.send_header("Content-Length", "0")
+            # Streamable HTTP 的服务端推送流：打开 SSE 长连接并保持
+            accept = self.headers.get("Accept", "")
+            print(f"[MCP] GET stream Accept={accept[:60]} UA={self.headers.get('User-Agent','?')[:40]}", flush=True)
+            self.send_response(200)
+            self.send_header("Content-Type", "text/event-stream")
+            self.send_header("Cache-Control", "no-cache")
+            self.send_header("Connection", "keep-alive")
+            self.send_header("Mcp-Session-Id", "reading-nook-1")
             self.end_headers()
+            try:
+                while True:
+                    # 周期性注释行作为心跳，维持连接；无服务端主动消息
+                    self.wfile.write(b": keepalive\n\n")
+                    self.wfile.flush()
+                    time.sleep(15)
+            except (BrokenPipeError, ConnectionResetError, OSError):
+                print("[MCP] GET stream closed", flush=True)
             return
         return super().do_GET()
 
